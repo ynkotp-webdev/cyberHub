@@ -1,0 +1,62 @@
+<section>
+    <h2 id="contact"> Заброюйте собі місце! </h2>
+    <div>
+    <form id="form" novalidate>
+        <fieldset>
+            <legend>Будь ласка, введіть ваші дані</legend>
+            <div>
+                <label for="name"> Ваше ім'я </label>
+                <input name="name" id="name" type="text" placeholder="Мінімум 2 символи" minlength="2" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' ]{2,}" autofocus>
+                <span class="error" data-error-for="name"></span>
+            </div>
+            <div>
+                <label for="tel"> Ваш номер телефону </label>
+                <input name="tel" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13">
+                <span class="error" data-error-for="tel"></span>
+            </div>
+            <div>
+                <label for="date"> Виберіть дату </label>
+                <input name="date" id="date" type="date" required>
+                <span class="error" data-error-for="date"></span>
+            </div>
+            <div>
+                <label for="time"> Оберіть час </label>
+                <select name="time" id="time" required>
+                    <option value="" disabled selected> --//-- </option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                </select>
+                <span class="error" data-error-for="time"></span>
+            </div>
+            <div>
+                <label for="hours"> Кількість годин </label>
+                <input name="hours" id="hours" type="number" min="1" max="12" required>
+                <span class="error" data-error-for="hours"></span>
+            </div>
+            <div>
+                <button type="submit"> Відправити </button>
+            </div>
+        </fieldset>
+    </form>
+    <div>
+        <div> 
+            <h3 id="formTitle"> Ви можете забронювати місце на нашому комп'ютерному клубі!</h3>
+            <p id="formText"> Ми пропонуємо комфортні умови для геймерів, зручне розташування та широкий вибір ігор. </p>
+        </div>
+    </div>
+    </div>
+</section>
+<script>
+    import "../scripts/menu.js";
+</script>

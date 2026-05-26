@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.error {
+  display: block;
+  color: #d00;
+  font-size: 0.85rem;
+  min-height: 1.1em;
+  margin-top: 0.25rem;
+}
+
+input.invalid {
+  border: 1px solid #d00;
+  outline-color: #d00;
+}

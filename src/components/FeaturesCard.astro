@@ -1,0 +1,11 @@
+---
+const { featuresTitle, featuresText } = Astro.props;
+const { img, alt } = Astro.props;
+---
+<div>
+    <div>
+        <h2> {featuresTitle} </h2>
+        <p> {featuresText} </p>
+    </div> 
+    <img src="/assets/images/{img}" alt="{alt}" loading="lazy"/>
+</div>
