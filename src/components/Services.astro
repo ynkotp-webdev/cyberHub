@@ -7,16 +7,49 @@ import card3 from '../assets/images/card3.webp';
 import card4 from '../assets/images/card4.webp';
 import card5 from '../assets/images/card5.webp';
 import card6 from '../assets/images/card6.webp';
-
 ---
 
+<section class="bg-zinc-950 py-16 md:py-20 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 id="services" class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-10 md:mb-14">
+            Що ми <span class="text-orange-500">пропонуємо</span>
+        </h2>
 
-<section>
-    <h2 id="services"> Наші Послуги </h2>
-    <ServicesCard servicesTitle="title1" image={card1} alt="Послуги CyberHub" servicesText="Ми пропонуємо найкращі умови для гравців у нашому комп'ютерному клубі." />
-    <ServicesCard servicesTitle="title2" image={card2} alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title3" image={card3} alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title4" image={card4} alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title5" image={card5} alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title6" image={card6} alt="Послуги CyberHub" servicesText="....." />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ServicesCard
+                servicesTitle="Місце для нових знайомств"
+                image={card1}
+                alt="Два друга щасливі після перемоги"
+                servicesText="У комп'ютерному клубі CyberHub можна знайти надійних тіммейтів та справжніх друзів. Беріть участь у внутрішніх турнірах, спілкуйтеся та створюйте непереможні кіберспортивні стаки прямо тут."
+            />
+            <ServicesCard
+                servicesTitle="Повне занурення у гру"
+                image={card2}
+                alt="Хлопець повністю у грі"
+                servicesText="Завдяки якісній гарнітурі із повною шумоізоляцією, яку ми надаємо кожному геймеру. Люди навколо вас не будуть вас відволікати від напружених клатчів чи від розміреної гри. Тільки ви, ваш скіл та чистий геймплей без жодних зовнішніх подразників."
+            />
+            <ServicesCard
+                servicesTitle="Можливість прийти з усіма друзями"
+                image={card3}
+                alt="Комадна грає в CS2"
+                servicesText="Наша велика кількість комп'ютерів дозволяє вам прийти з усіма друзями, і кожному вистачить місця та снеків. Бронюйте цілі ряди або VIP-кімнати, щоб влаштувати незабутній геймінг-марафон у колі своєї компанії."
+            />
+            <ServicesCard servicesTitle="Базова зона Cyberhub" image={card4} alt="Базова зона Cyberhub" servicesText="⚡ Ryzen 5 5600 (розігнаний до 4.6GHz)
+💾 32GB DDR4 3600MHz
+🎮 Radeon RX Vega 64
+🖥 Монітори 24” IPS 180Hz HDR FreeSync Premium на індивідуальних кронштейнах
+🎧 Logitech G535 (бездротова гарнітура)
+🖱 Logitech G102 (ігрова миша)
+⌨️ HATOR Gravity X KTL (механіка 80% формфактор)" />
+            <ServicesCard servicesTitle="VIP Cyberhub" image={card5} alt=" VIP CyberHub" servicesText="💻 Конфігурація VIP для професійних геймерів
+🚀 AMD Ryzen 5 7500F (розігнаний до 5.2GHz) — миттєва реакція й плавність навіть у найдинамічніших іграх ⚡
+🎮 NVIDIA GeForce RTX 3070 — стабільний високий FPS у кіберспортивних дисциплінах та AAA-проєктах 🎯
+🖥 27” IPS 2K 180Hz HDR із G-SYNC на індивідуальних кронштейнах — максимальна деталізація й швидкість, яку бачать лише професіонали " />
+            <ServicesCard servicesTitle="BootCamp Cyberhub" image={card6} alt="BootCamp cyberhub" servicesText="💻 Конфігурація Bootcamp для кіберспорту:
+🚀 AMD Ryzen 5 7500F, розігнаний до 5.2GHz — ще плавніший і швидший ігровий процес
+🎮 NVIDIA RTX 3070 — стабільний високий FPS у всіх кіберспортивних дисциплінах
+🖥️ 25’’ IPS 300Hz HDR з G-SYNC — максимальна плавність, деталізація й швидкість реакції для кіберспорту
+💥Монітори на індивідуальних кронштейнах — налаштуй комфорт під себе" />
+        </div>
+    </div>
 </section>

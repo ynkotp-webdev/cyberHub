@@ -1,9 +1,30 @@
+const burger = document.getElementById("menu");
+const mobileNav = document.getElementById("mobileNav");
+if (burger && mobileNav) {
+  burger.addEventListener("click", () => {
+    const isOpen = mobileNav.classList.toggle("hidden") === false;
+    mobileNav.classList.toggle("flex", isOpen);
+    burger.setAttribute("aria-expanded", String(isOpen));
+  });
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      mobileNav.classList.remove("flex");
+      burger.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
 const form = document.getElementById("form");
 const nameInput = document.getElementById("name");
 const tel = document.getElementById("tel");
 const dateInput = document.getElementById("date");
 const timeInput = document.getElementById("time");
 const hoursInput = document.getElementById("hours");
+
+if (!form) {
+  // form not present on this page — bail out of form wiring
+} else {
 
 const today = new Date().toISOString().split("T")[0];
 dateInput.min = today;
@@ -90,3 +111,5 @@ form.addEventListener("submit", function (event) {
   if (afterSubmit) afterSubmit.removeAttribute("hidden");
   form.reset();
 });
+
+}

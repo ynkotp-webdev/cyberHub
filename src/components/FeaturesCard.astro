@@ -1,15 +1,14 @@
 ---
 const { featuresTitle, featuresText, image, alt } = Astro.props;
- 
+
 import { Image } from 'astro:assets';
 import '../styles/global.css';
- 
- 
 ---
-<div>
-    <div>
-        <h2> {featuresTitle} </h2>
-        <p> {featuresText} </p>
-    </div> 
-    <Image src={image} alt={alt} loading="lazy"/>
-</div>
+<article class="group bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-orange-500/50 transition-colors overflow-hidden flex flex-col h-full">
+    <Image src={image} alt={alt} loading="lazy"
+        class="w-full h-48 md:h-52 object-cover" />
+    <div class="p-5 flex flex-col gap-2 flex-1">
+        <h3 class="text-lg md:text-xl font-bold text-orange-500 leading-tight">{featuresTitle}</h3>
+        <p class="text-sm text-zinc-300 leading-relaxed whitespace-pre-line">{featuresText}</p>
+    </div>
+</article>

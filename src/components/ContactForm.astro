@@ -1,60 +1,85 @@
-<section>
-    <h2 id="contact"> Заброюйте собі місце! </h2>
-    <div>
-    <form id="form" novalidate>
-        <fieldset>
-            <legend>Будь ласка, введіть ваші дані</legend>
-            <div>
-                <label for="name"> Ваше ім'я </label>
-                <input name="name" id="name" type="text" placeholder="Мінімум 2 символи" minlength="2" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' ]{2,}" autofocus>
-                <span class="error" data-error-for="name"></span>
+---
+---
+<section class="bg-black py-16 md:py-20 border-t border-zinc-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 id="contact" class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-10 md:mb-14">
+            Заброюйте собі <span class="text-orange-500">місце!</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+            <form id="form" novalidate
+                class="bg-zinc-900 rounded-2xl p-6 md:p-8 border border-zinc-800 order-2 md:order-1">
+                <fieldset class="border-0 p-0 m-0 space-y-4">
+                    <legend class="text-lg font-bold text-orange-500 mb-4 px-0">Будь ласка, введіть ваші дані</legend>
+
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваше ім'я</label>
+                        <input name="name" id="name" type="text" placeholder="Мінімум 2 символи" minlength="2" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' ]{2,}" autofocus
+                            class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition" />
+                        <span class="error" data-error-for="name"></span>
+                    </div>
+
+                    <div>
+                        <label for="tel" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваш номер телефону</label>
+                        <input name="tel" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13"
+                            class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition" />
+                        <span class="error" data-error-for="tel"></span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="date" class="block text-sm font-medium text-zinc-300 mb-1.5">Виберіть дату</label>
+                            <input name="date" id="date" type="date" required
+                                class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2.5 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition" />
+                            <span class="error" data-error-for="date"></span>
+                        </div>
+
+                        <div>
+                            <label for="time" class="block text-sm font-medium text-zinc-300 mb-1.5">Оберіть час</label>
+                            <select name="time" id="time" required
+                                class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2.5 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition">
+                                <option value="" disabled selected>--//--</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                            </select>
+                            <span class="error" data-error-for="time"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="hours" class="block text-sm font-medium text-zinc-300 mb-1.5">Кількість годин</label>
+                        <input name="hours" id="hours" type="number" min="1" max="12" required
+                            class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition" />
+                        <span class="error" data-error-for="hours"></span>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-black font-bold py-3 rounded-lg transition-colors mt-2">
+                        Відправити
+                    </button>
+                </fieldset>
+            </form>
+
+            <div class="order-1 md:order-2 flex flex-col gap-4 md:pt-2">
+                <h3 id="formTitle" class="text-2xl md:text-3xl font-extrabold leading-tight text-white">
+                    Ви можете забронювати місце на нашому комп'ютерному клубі!
+                </h3>
+                <p id="formText" class="text-zinc-300 leading-relaxed whitespace-pre-line">
+                    Ми пропонуємо комфортні умови для геймерів, зручне розташування та широкий вибір ігор.
+                </p>
             </div>
-            <div>
-                <label for="tel"> Ваш номер телефону </label>
-                <input name="tel" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13">
-                <span class="error" data-error-for="tel"></span>
-            </div>
-            <div>
-                <label for="date"> Виберіть дату </label>
-                <input name="date" id="date" type="date" required>
-                <span class="error" data-error-for="date"></span>
-            </div>
-            <div>
-                <label for="time"> Оберіть час </label>
-                <select name="time" id="time" required>
-                    <option value="" disabled selected> --//-- </option>
-                    <option value="09:00">09:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option>
-                    <option value="19:00">19:00</option>
-                    <option value="20:00">20:00</option>
-                    <option value="21:00">21:00</option>
-                </select>
-                <span class="error" data-error-for="time"></span>
-            </div>
-            <div>
-                <label for="hours"> Кількість годин </label>
-                <input name="hours" id="hours" type="number" min="1" max="12" required>
-                <span class="error" data-error-for="hours"></span>
-            </div>
-            <div>
-                <button type="submit"> Відправити </button>
-            </div>
-        </fieldset>
-    </form>
-    <div>
-        <div> 
-            <h3 id="formTitle"> Ви можете забронювати місце на нашому комп'ютерному клубі!</h3>
-            <p id="formText"> Ми пропонуємо комфортні умови для геймерів, зручне розташування та широкий вибір ігор. </p>
         </div>
-    </div>
     </div>
 </section>
 <script>

@@ -1,21 +1,18 @@
 ---
 const { pageTitle } = Astro.props;
 import '../styles/global.css'
-
 ---
 
-
-
 <!DOCTYPE html>
-	<html lang="uk">
-		<head>
-			<meta charset="UTF-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<link rel="stylesheet" href="/assets/css/main.css" />
-			<title>{pageTitle}</title>
-			<meta name="description" content="Комп'ютерний клуб СyberHub, що знаходиться у Львові за адресою вул. Івана Богуна, 4" />
-		</head>
-		<body>
-			<slot />
-		</body>
-	</html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{pageTitle}</title>
+		<meta name="description" content="Комп'ютерний клуб СyberHub, що знаходиться у Львові за адресою вул. Івана Богуна, 4" />
+	</head>
+	<body class="bg-black text-white min-h-screen">
+		<slot />
+	</body>
+</html>
