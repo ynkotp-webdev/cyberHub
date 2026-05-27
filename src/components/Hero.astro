@@ -1,15 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/hero.webp';
+
 const { title } = Astro.props;
 ---
 
 
 <section>
-    <div> 
+    <div>
         <h1> {title} </h1>
         <p> Комп'ютерний клуб СyberHub, що знаходиться у Львові за адресою вул. Івана Богуна, 4</p>
     </div>
     <div>
-        <img src="/assets/images/hero.jpg" alt="CyberHub" loading="eager"/>
+        <Image src={heroImage} alt="CyberHub" loading="eager" />
         <button> Забронювати місце </button>
     </div>
 </section>

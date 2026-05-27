@@ -1,9 +1,13 @@
 ---
 import FeaturesCard from './FeaturesCard.astro';
+import features1 from '../assets/images/features1.webp';
+import features2 from '../assets/images/features2.webp';
+import features3 from '../assets/images/features3.webp';
+
 ---
 <section>
     <h2 id="features"> наші Переваги </h2>
-    <FeaturesCard featuresTitle="....." featuresText="Ми пропонуємо найкращі умови для гравців у нашому комп'ютерному клубі." img="features1.jpg" alt="Переваги CyberHub" />
-    <FeaturesCard featuresTitle="....." featuresText="....." img="features2.jpg" alt="Переваги CyberHub" />
-    <FeaturesCard featuresTitle="....." featuresText="....." img="features3.jpg" alt="Переваги CyberHub" />
+    <FeaturesCard featuresTitle="....." featuresText="Ми пропонуємо найкращі умови для гравців у нашому комп'ютерному клубі." image={features1} alt="Переваги CyberHub" />
+    <FeaturesCard featuresTitle="....." featuresText="....." image={features2} alt="Переваги CyberHub" />
+    <FeaturesCard featuresTitle="....." featuresText="....." image={features3} alt="Переваги CyberHub" />
 </section>

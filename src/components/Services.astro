@@ -1,14 +1,22 @@
 ---
 import ServicesCard from "./ServicesCard.astro"
+
+import card1 from '../assets/images/card1.webp';
+import card2 from '../assets/images/card2.webp';
+import card3 from '../assets/images/card3.webp';
+import card4 from '../assets/images/card4.webp';
+import card5 from '../assets/images/card5.webp';
+import card6 from '../assets/images/card6.webp';
+
 ---
 
 
 <section>
     <h2 id="services"> Наші Послуги </h2>
-    <ServicesCard servicesTitle="title1" servicesImg="services1.webp" alt="Послуги CyberHub" servicesText="Ми пропонуємо найкращі умови для гравців у нашому комп'ютерному клубі." />
-    <ServicesCard servicesTitle="title2" servicesImg="services2.webp" alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title3" servicesImg="services3.webp" alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title4" servicesImg="services4.webp" alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title5" servicesImg="services5.webp" alt="Послуги CyberHub" servicesText="....." />
-    <ServicesCard servicesTitle="title6" servicesImg="services6.webp" alt="Послуги CyberHub" servicesText="....." />
+    <ServicesCard servicesTitle="title1" image={card1} alt="Послуги CyberHub" servicesText="Ми пропонуємо найкращі умови для гравців у нашому комп'ютерному клубі." />
+    <ServicesCard servicesTitle="title2" image={card2} alt="Послуги CyberHub" servicesText="....." />
+    <ServicesCard servicesTitle="title3" image={card3} alt="Послуги CyberHub" servicesText="....." />
+    <ServicesCard servicesTitle="title4" image={card4} alt="Послуги CyberHub" servicesText="....." />
+    <ServicesCard servicesTitle="title5" image={card5} alt="Послуги CyberHub" servicesText="....." />
+    <ServicesCard servicesTitle="title6" image={card6} alt="Послуги CyberHub" servicesText="....." />
 </section>
