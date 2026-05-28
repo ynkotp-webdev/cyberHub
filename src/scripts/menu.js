@@ -107,8 +107,6 @@ form.addEventListener("submit", function (event) {
   formHeader.textContent = "Дякуємо за бронювання!";
   formText.textContent = "Наш менеджер зв'яжеться з вами найближчим часом:\n" + outputText;
 
-  const afterSubmit = document.querySelector(".text-after-submit");
-  if (afterSubmit) afterSubmit.removeAttribute("hidden");
   form.reset();
 });
 
