@@ -1,27 +1,25 @@
 ---
 import { Image } from 'astro:assets';
 import heroImage from '../assets/images/hero.webp';
-
-const { title } = Astro.props;
 ---
 
 <section class="bg-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
         <div class="order-2 md:order-1 space-y-5 text-center md:text-left">
             <h1 class="flex flex-wrap justify-center md:justify-start items-center text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
-                <span class="text-white">Сyber</span><span class="bg-orange-500 text-black px-3 py-1 rounded-lg ml-2">Hub</span>
+                <span class="text-white">Cyber</span><span class="bg-orange-500 text-black px-3 py-1 rounded-lg ml-2">Hub</span>
             </h1>
             <p class="text-base md:text-lg text-zinc-300 leading-relaxed max-w-md mx-auto md:mx-0">
-                Наш комп'ютерний клуб — це місце, де кожен зможе задовільнити свої геймерські бажання з комфортними та доступними умовами.
+                Наш комп'ютерний клуб — це місце, де кожен зможе задовольнити свої геймерські бажання з комфортними та доступними умовами.
             </p>
         </div>
 
         <div class="order-1 md:order-2 flex flex-col items-center gap-5">
-            <Image src={heroImage} alt="Зображення комп'ютерного клубу зсиредини" loading="eager"
+            <Image src={heroImage} alt="Зображення комп'ютерного клубу зсередини" loading="eager"
                 class="w-full max-w-md rounded-2xl shadow-2xl shadow-orange-500/10 ring-1 ring-zinc-800" />
             <a href="#form"
                 class="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Заброюйте собі місце!
+                Забрнюйте собі місце!
             </a>
         </div>
     </div>

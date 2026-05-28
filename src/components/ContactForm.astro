@@ -13,29 +13,29 @@
                     <legend class="text-lg font-bold text-orange-500 mb-4 px-0">Будь ласка, введіть ваші дані</legend>
 
                     <div>
-                        <label for="Ім'я" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваше ім'я</label>
-                        <input name="Ім'я" id="name" type="text" placeholder="Мінімум 2 символи" minlength="2" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' ]{2,}" autofocus
+                        <label for="name" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваше ім'я</label>
+                        <input name="Ім'я" id="name" type="text" placeholder="Мінімум 2 символи" minlength="2" required pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' ]{2,}" autocomplete="name"
                             class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors" />
                         <span class="error" data-error-for="name"></span>
                     </div>
 
                     <div>
-                        <label for="Телефон" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваш номер телефону</label>
-                        <input name="Телефон" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13"
+                        <label for="tel" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваш номер телефону</label>
+                        <input name="Телефон" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13" autocomplete="tel"
                             class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors" />
                         <span class="error" data-error-for="tel"></span>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label for="Дата" class="block text-sm font-medium text-zinc-300 mb-1.5">Виберіть дату</label>
+                            <label for="date" class="block text-sm font-medium text-zinc-300 mb-1.5">Виберіть дату</label>
                             <input name="Дата" id="date" type="date" required
                                 class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors" />
                             <span class="error" data-error-for="date"></span>
                         </div>
 
                         <div>
-                            <label for="Час запису" class="block text-sm font-medium text-zinc-300 mb-1.5">Оберіть час</label>
+                            <label for="time" class="block text-sm font-medium text-zinc-300 mb-1.5">Оберіть час</label>
                             <select name="Час запису" id="time" required
                                 class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors">
                                 <option value="" disabled selected>--//--</option>
@@ -58,7 +58,7 @@
                     </div>
 
                     <div>
-                        <label for="Кількість годин" class="block text-sm font-medium text-zinc-300 mb-1.5">Кількість годин</label>
+                        <label for="hours" class="block text-sm font-medium text-zinc-300 mb-1.5">Кількість годин</label>
                         <input name="Кількість годин" id="hours" type="number" min="1" max="12" required
                             class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors" />
                         <span class="error" data-error-for="hours"></span>
@@ -82,6 +82,4 @@
         </div>
     </div>
 </section>
-<script>
-    import "../scripts/menu.js";
-</script>
+ 

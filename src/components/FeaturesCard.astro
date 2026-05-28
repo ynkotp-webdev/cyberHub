@@ -2,7 +2,6 @@
 const { featuresTitle, featuresText, image, alt } = Astro.props;
 
 import { Image } from 'astro:assets';
-import '../styles/global.css';
 ---
 <article class="group bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-orange-500/50 transition-colors overflow-hidden flex flex-col h-full">
     <Image src={image} alt={alt} loading="lazy"
