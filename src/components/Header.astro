@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 import '../styles/global.css';
+import BurgerMenu from './BurgerMenu.astro';
 ---
 <header class="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-zinc-800 text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
@@ -15,12 +16,7 @@ import '../styles/global.css';
             <a href="#footer" class="hover:text-orange-500 transition-colors">Контакти</a>
         </nav>
 
-        <button type="button" id="menu" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav"
-            class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-md hover:bg-zinc-900 transition-colors">
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-        </button>
+        <BurgerMenu />
     </div>
 
     <nav id="mobileNav" class="md:hidden hidden flex-col gap-1 px-4 pb-4 border-t border-zinc-800 bg-black">
