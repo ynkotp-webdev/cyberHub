@@ -84,8 +84,6 @@ inputs.forEach((input) => {
 });
 
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
-
   let firstInvalid = null;
   inputs.forEach((input) => {
     showError(input);
