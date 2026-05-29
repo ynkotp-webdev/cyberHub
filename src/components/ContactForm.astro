@@ -7,7 +7,7 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
-            <form id="form" novalidate action="https://formspree.io/f/xkoeypnq" method="POST" 
+            <form id="form" action="https://formspree.io/f/xkoeypnq" method="POST" 
                 class="bg-zinc-900 rounded-2xl p-6 md:p-8 border border-zinc-800 order-2 md:order-1">
                 <fieldset class="border-0 p-0 m-0 space-y-4">
                     <legend class="text-lg font-bold text-orange-500 mb-4 px-0">Будь ласка, введіть ваші дані</legend>
@@ -21,7 +21,7 @@
 
                     <div>
                         <label for="tel" class="block text-sm font-medium text-zinc-300 mb-1.5">Ваш номер телефону</label>
-                        <input name="Телефон" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" maxlength="13" autocomplete="tel"
+                        <input name="Телефон" id="tel" type="tel" placeholder="+380XXXXXXXXX" required pattern="\+380[0-9]{9}" minlength="13" maxlength="13" autocomplete="tel"
                             class="w-full bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-2.5 text-white placeholder:text-zinc-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 focus:outline-none transition-colors" />
                         <span class="error" data-error-for="tel"></span>
                     </div>
