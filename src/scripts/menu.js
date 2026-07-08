@@ -135,7 +135,7 @@ if (form) {
       if (response.ok) {
         formHeader.textContent = "Дякуємо за бронювання!";
         formText.textContent =
-          "Наш менеджер зв'яжеться з вами найближчим часом.\n\nВаші дані:\n" + summary;
+          "Це лише концепт-редизайн існуючого бренду, заявка нікуди не надсилається.\n\nВаші дані:\n" + summary;
         form.reset();
         clearAllErrors();
       } else {
