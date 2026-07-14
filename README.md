@@ -1,46 +1,167 @@
-# Astro Starter Kit: Basics
+# CyberHub — концепт-редизайн сайту комп'ютерного клубу
 
-```sh
-npm create astro@latest -- --template basics
+Односторінковий (single-page) сайт-концепт для комп'ютерного клубу у Львові, побудований на Astro та Tailwind CSS. Проєкт створений як демонстраційна робота для портфоліо.
+
+**Демо:** https://ynkotp228.github.io/cyberHub/
+
+---
+
+## ⚠️ Дисклеймер
+
+> Цей проєкт є концептом редизайну та створений виключно для демонстрації навичок веброзробки в рамках особистого портфоліо.
+>
+> Він **не є офіційним продуктом CyberHub**, не пов'язаний із компанією, її власниками чи брендом та не використовується в комерційній діяльності.
+>
+> Форма бронювання на сайті відправляє дані через Formspree виключно в демонстраційних цілях — реальні заявки нікуди не передаються.
+>
+> Усі торгові марки та назви належать їхнім законним власникам.
+
+---
+
+## Основні особливості
+
+- **Односторінкова структура** з навігацією по якорях (`#features`, `#services`, `#contact`, `#footer`) та плавним скролом (`scroll-behavior: smooth`).
+- **Повністю адаптивна верстка**: окреме мобільне бургер-меню та десктопна горизонтальна навігація, зміна порядку блоків (`order-*`) та кількості колонок сітки залежно від ширини екрана.
+- **Форма бронювання місця** з клієнтською валідацією (ім'я, телефон у форматі `+380XXXXXXXXX`, дата, час, кількість годин), інлайновими повідомленнями про помилки та AJAX-відправкою через `fetch` без перезавантаження сторінки.
+- **Оптимізовані зображення**: усі фото пропущені через вбудований компонент `astro:assets` `<Image />`, формат `.webp`, `lazy`-завантаження для всього, крім hero-зображення (`eager`, для швидшого LCP).
+- **SEO-налаштування «з коробки»**: `meta description`, автогенерація `sitemap-index.xml` через `@astrojs/sitemap`, `robots.txt` з посиланням на sitemap, коректний `<link rel="sitemap">` у `<head>`.
+- **Базова доступність (a11y)**: `aria-label`, `aria-expanded`, `aria-controls` на бургер-меню; семантична розмітка (`header`, `nav`, `section`, `article`, `footer`, `fieldset`/`legend`, `label` для кожного поля форми).
+- **Автоматичний деплой** на GitHub Pages через GitHub Actions (`withastro/action` + `actions/deploy-pages`) при кожному push у `main`.
+
+---
+
+## Використані технології
+
+| Технологія | Версія | Призначення |
+|---|---|---|
+| [Astro](https://astro.build) | ^6.3.7 | Основний фреймворк, статична генерація сайту (SSG) |
+| [Tailwind CSS](https://tailwindcss.com) | ^4.3.0 | Утилітарні стилі, підключені через `@tailwindcss/vite` |
+| [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) | ^3.7.3 | Автогенерація `sitemap-index.xml` |
+| TypeScript (`astro/tsconfigs/strict`) | — | Строга типізація props в `.astro`-компонентах |
+| Vanilla JavaScript | — | Логіка бургер-меню та валідація/відправка форми (`src/scripts/menu.js`), без сторонніх бібліотек чи фреймворків |
+| [Formspree](https://formspree.io) | — | Бекенд для прийому даних форми бронювання |
+
+Інших бібліотек (React, GSAP, Framer Motion тощо) у проєкті **не виявлено** — весь інтерактив реалізований на чистому JavaScript.
+
+---
+
+## Архітектура проєкту
+
+Проєкт побудований за компонентним підходом Astro:
+
+- `Layout.astro` — базовий HTML-каркас (`<html>`, `<head>`, метадані, підключення глобальних стилів) із `<slot />` для вмісту сторінки.
+- `src/pages/index.astro` — єдина сторінка сайту, що збирає секції з компонентів у потрібному порядку.
+- Секційні компоненти (`Header`, `Hero`, `Features`, `Services`, `ContactForm`, `Footer`) відповідають за окремі блоки сторінки.
+- «Карткові» компоненти (`FeaturesCard`, `ServicesCard`) — переговорені (reusable) презентаційні компоненти, що приймають дані через props і рендеряться в циклі `.map()` з масивів даних, оголошених прямо у батьківському компоненті (`Features.astro`, `Services.astro`). Це відокремлює контент (дані) від розмітки картки й дозволяє додавати нові пункти без дублювання HTML.
+- `BurgerMenu.astro` винесено окремим компонентом, хоча логіка перемикання живе в `menu.js` — розмітка та поведінка розділені.
+- `src/scripts/menu.js` підключається безпосередньо в `index.astro` через inline `<script>` з ES-модульним імпортом.
+- `src/styles/global.css` — єдина точка входу для Tailwind (`@import "tailwindcss"`) та невеликого набору кастомних стилів (плавний скрол, стан помилки полів форми).
+
+---
+
+## Ключові технічні рішення
+
+- **Дані винесені з розмітки.** Списки переваг (`features`) і послуг (`services`) оформлені як масиви об'єктів усередині відповідних компонентів, а не захардкоджені в JSX-подібній розмітці. Завдяки цьому картки (`FeaturesCard`, `ServicesCard`) лишаються повністю переговорюваними — додати новий пункт можна одним об'єктом у масиві.
+- **`astro:assets` замість звичайних `<img>`.** Компонент `<Image />` автоматично оптимізує зображення під час білда та генерує коректні атрибути — не потрібно вручну стискати `.webp` чи прописувати розміри.
+- **Клієнтська валідація поверх нативного HTML5 Constraint Validation API.** `menu.js` використовує `input.validity` (`valueMissing`, `patternMismatch`, `tooShort`, `rangeUnderflow`, `rangeOverflow`) для генерації зрозумілих повідомлень про помилки українською, замість дублювання правил валідації вручну.
+- **Прогресивна відправка форми без перезавантаження.** Форма перехоплює `submit`, блокує кнопку та показує стан «Відправляємо…», відправляє `FormData` через `fetch` на Formspree, а після відповіді підмінює текст поруч із формою на підсумок бронювання або повідомлення про помилку — без редиректу на сторонню сторінку.
+- **`base` та `site` в `astro.config.mjs` налаштовані під деплой у підпапку GitHub Pages** (`https://ynkotp228.github.io/cyberHub/`), а посилання на favicon і sitemap у `Layout.astro` формуються динамічно через `import.meta.env.BASE_URL`, щоб коректно працювати незалежно від того, в корені домену чи в підпапці розгорнутий сайт.
+
+---
+
+## UX/UI особливості
+
+- Темна кольорова схема (чорний / `zinc-900` / `zinc-950`) з єдиним акцентним кольором `orange-500` — акцент послідовно повторюється в логотипі, заголовках секцій, кнопках і активних станах посилань.
+- Логотип «Cyber**Hub**» побудований як два `<span>` з різним стилем (білий текст + помаранчевий бейдж), однаково відтворений у хедері та hero-секції.
+- Картки переваг і послуг мають однаковий патерн: заокруглені кути, бордер `zinc-800`, який при ховері підсвічується в `orange-500/50` — консистентний hover-фідбек по всьому сайту.
+- На мобільних пристроях порядок блоків у Hero-секції змінюється (`order-1`/`order-2`) так, щоб зображення й кнопка бронювання йшли перед текстом — це витягує заклик до дії (CTA) вище на маленьких екранах.
+- Помилки валідації форми виводяться інлайново під кожним полем (`<span class="error" data-error-for="...">`), а не через `alert()` чи спливаючі вікна.
+
+---
+
+## Структура проєкту
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
+cyberHub/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # CI/CD: автодеплой на GitHub Pages
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   └── robots.txt
+├── src/
+│   ├── assets/
+│   │   └── images/              # .webp зображення (hero, картки переваг і послуг)
+│   ├── components/
+│   │   ├── BurgerMenu.astro
+│   │   ├── ContactForm.astro
+│   │   ├── Features.astro
+│   │   ├── FeaturesCard.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── Services.astro
+│   │   └── ServicesCard.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   ├── scripts/
+│   │   └── menu.js              # бургер-меню + валідація та відправка форми
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## Як запустити локально
 
-All commands are run from the root of the project, from a terminal:
+Вимоги: Node.js **>= 22.12.0** (вказано в `package.json` → `engines`) та npm.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+# 1. Клонувати репозиторій
+git clone https://github.com/ynkotp228/cyberHub.git
+cd cyberHub
 
-## 👀 Want to learn more?
+# 2. Встановити залежності
+npm install
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# 3. Запустити dev-сервер
+npm run dev
+```
+
+Сайт буде доступний за адресою, яку виведе Astro (типово `http://localhost:4321`).
+
+---
+
+## Скрипти
+
+| Команда | Опис |
+|---|---|
+| `npm run dev` | Запуск локального dev-сервера з гарячим перезавантаженням |
+| `npm run build` | Продакшн-збірка сайту в директорію `dist/` |
+| `npm run preview` | Локальний перегляд продакшн-збірки |
+| `npm run astro` | Прямий виклик Astro CLI |
+
+---
+
+## Деплой
+
+Сайт автоматично деплоїться на **GitHub Pages** за допомогою GitHub Actions (`.github/workflows/deploy.yml`): при кожному push у гілку `main` запускається білд через `withastro/action`, після чого результат публікується `actions/deploy-pages`.
+
+---
+
+## Для кого створений проєкт
+
+Цей репозиторій призначений як приклад роботи для портфоліо фронтенд-розробника — демонструє вміння працювати з Astro, Tailwind CSS, компонентною архітектурою, доступністю форм і базовим SEO без використання додаткових UI-фреймворків чи бібліотек анімацій.
+
+---
+
+## Автор
+
+**Ostap Yonka** — [github.com/ynkotp228](https://github.com/ynkotp228)
